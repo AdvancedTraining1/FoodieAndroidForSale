@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NFC-Reader</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="intro_message">
+        <![CDATA[
+        
+            
+            This sample demonstrates how to implement a low-level NFC card reader, for reading cards
+            that do not contain NDEF or Android Beam data. This sample is designed to read the virtual
+            loyalty card implemented in the "CardEmulation" sample.\n\n
+
+            In particular, this sample demonstrates how to disable Android Beam, select which AIDs the
+            reader is interested, and establish communication with the card
+            
+        
+        ]]>
+    </string>
+    <string name="sample_show_log">Show Log</string>
+    <string name="sample_hide_log">Hide Log</string>
+    <string name="card_title">Sample Loyalty Card</string>
+    <string name="account_number">Account Number</string>
+</resources>

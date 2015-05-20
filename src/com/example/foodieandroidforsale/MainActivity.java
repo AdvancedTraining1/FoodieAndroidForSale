@@ -33,6 +33,7 @@ public class MainActivity extends SampleActivityBase {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         CardReaderFragment fragment = new CardReaderFragment();
+        fragment.setContext(MainActivity.this);
         transaction.replace(R.id.sample_content_fragment, fragment);
         transaction.commit();
     }

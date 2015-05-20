@@ -17,12 +17,17 @@
 package com.example.foodieandroidforsale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 
@@ -39,7 +44,9 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
             NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK;
     public LoyaltyCardReader mLoyaltyCardReader;
     private TextView mAccountField;
-
+    private TextView mSeatNum;
+    private Context m_Context;
+    private int m_Seat;
     /** Called when sample is created. Displays generic UI with welcome text. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,15 +60,28 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
         View v = inflater.inflate(R.layout.main_fragment, container, false);
         if (v != null) {
             mAccountField = (TextView) v.findViewById(R.id.card_account_field);
+            mSeatNum = (TextView)v.findViewById(R.id.card_account_label);
             mAccountField.setText("Waiting...");
-
+            m_Seat = getSeatNumber();
+            mSeatNum.setText(String.format("%d", m_Seat));
             mLoyaltyCardReader = new LoyaltyCardReader(this);
 
             // Disable Android Beam and register our card reader callback
             enableReaderMode();
+            
+            
         }
 
         return v;
+    }
+    
+    public void setContext(Context c) {
+		m_Context = c;
+	}
+    
+    public int getSeatNumber()
+    {
+    	return 30;
     }
 
     @Override
@@ -102,6 +122,34 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
             @Override
             public void run() {
                 mAccountField.setText(account);
+                
+                AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
+                m_sure.setMessage("有人签到了知道么!");
+                m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        			
+        			@Override
+        			public void onClick(DialogInterface dialog, int which) {
+        				// TODO Auto-generated method stub
+        				//Toast.makeText(getApplicationContext(), "To another page",Toast.LENGTH_SHORT).show();
+        				//mText.setText("Scan a tag!" );
+        				
+        				//Intent intent1=new Intent(NFCScanTagActivity.this,CouponActivity.class);
+        	            //send music names
+        	            //intent1.putStringArrayListExtra("list", msg);
+        	            //startActivity(intent1);
+        			}
+        		});
+                
+                final AlertDialog dialog = m_sure.create();    
+                Window window = dialog.getWindow();    
+                WindowManager.LayoutParams lp = window.getAttributes();       
+                lp.alpha = 0.8f;  
+                lp.y = -180;
+                window.setAttributes(lp);
+                dialog.show();
+                
+                m_Seat++;
+                mSeatNum.setText(String.format("%d", m_Seat));
             }
         });
     }

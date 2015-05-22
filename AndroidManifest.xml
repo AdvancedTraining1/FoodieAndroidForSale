@@ -39,6 +39,11 @@
             android:label="@string/app_name" 
             android:parentActivityName=".HomePageActivity" >>
         </activity>
+        <activity
+            android:name="com.example.foodieandroidforsale.BulkCoupons"
+            android:label="@string/app_name" 
+            android:parentActivityName=".HomePageActivity" >>
+        </activity>
     </application>
 
 </manifest>

@@ -16,21 +16,21 @@
         android:id="@+id/button_01"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="qiandao"
+        android:text="签到"
         >
     </Button>
 	<Button
         android:id="@+id/button_02"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="zuoweishu"
+        android:text="编辑优惠券"
         >
     </Button> 
     <Button
         android:id="@+id/button_03"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="kerenliebiao"
+        android:text="群发消息"
         >
     </Button>
     <Button

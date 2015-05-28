@@ -66,8 +66,8 @@ public class HomePageActivity extends Activity implements OnClickListener{
             	//读取存放的数据
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
-                Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
-                Toast.makeText(HomePageActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
+                //Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
+                //Toast.makeText(HomePageActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
             }
             if(resultCode == 998) {
             	//读取存放的数据

@@ -211,6 +211,13 @@ public class WriteToTagActivity extends Activity{
     	 SharedPreferences preferences = getSharedPreferences("Text", 0);
          //Toast.makeText(WriteToTagActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
          //Toast.makeText(WriteToTagActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
+    	if (preferences.getString("title", null)==null || "".equals(preferences.getString("title", null))
+    			|| preferences.getString("content", null)==null || "".equals(preferences.getString("content", null))) {
+    		Toast.makeText(WriteToTagActivity.this, "题目和内容不能为空，请重新填写",Toast.LENGTH_LONG ).show(); 
+    		return false;
+		}
+    	 
+    	 
          try {
  			jsonText.object();
  			jsonText.key("id");  

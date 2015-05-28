@@ -7,36 +7,46 @@
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
-	<uses-permission android:name="android.permission.NFC" />
-    <uses-feature android:name="android.hardware.nfc" android:required="true" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.foodieandroidforsale.HomePageActivity"
+            android:name=".HomePageActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name="com.example.foodieandroidforsale.MainActivity"
             android:label="@string/app_name" 
             android:parentActivityName=".HomePageActivity" >
+
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomePageActivity" >
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
             </intent-filter>
+
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
         </activity>
         <activity
-            android:name="com.example.foodieandroidforsale.PublishCouponsActivity"
-            android:label="@string/app_name" 
+            android:name=".PublishCouponsActivity"
+            android:label="@string/app_name"
             android:parentActivityName=".HomePageActivity" >
         </activity>
         <activity
@@ -48,6 +58,28 @@
             android:name="com.example.foodieandroidforsale.WriteToTagActivity"
             android:label="@string/app_name" 
             android:parentActivityName=".PublishCouponsActivity" >
+        </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomePageActivity" >
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".HomePageActivity" >
+        </activity>
+        <activity
+            android:name=".DishOrderActivity"
+            android:label="@string/title_activity_dish_order" >
+              <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/dishchoose" />
+            </intent-filter>
         </activity>
     </application>
 

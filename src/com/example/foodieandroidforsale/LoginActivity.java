@@ -25,6 +25,7 @@ public class LoginActivity extends Activity {
 	private Button btn_register;
 	private Button btn_login;
 	public static String token;
+	public static String id;
 	public boolean isConnect = false;
 	public UserDao userDao = new UserDao(this);
 	private Handler handler = new Handler();
@@ -141,8 +142,9 @@ public class LoginActivity extends Activity {
 		
 		try{
 			token = jsonObject.getString("token");
+			id = jsonObject.getString("id");
 			isConnect = true;
-			userDao.add(token);
+			userDao.add(token,id);
 		}catch(Exception e){
 			e.printStackTrace();
 		}	

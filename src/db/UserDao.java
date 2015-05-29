@@ -1,6 +1,5 @@
 package db;
 
-import db.User;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,9 +10,9 @@ public class UserDao {
 		dbHelper = new UserSQLiteOpenHelper(contex);
 	}
 	
-	public void add(String token, String id){
+	public void add(String token){
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
-		db.execSQL("insert into user (token,userid) values (?,?)", new Object[]{token,id});
+		db.execSQL("insert into user (token) values (?)", new Object[]{token});
 		db.close();
 	}
 	
@@ -23,8 +22,7 @@ public class UserDao {
 		Cursor cursor = db.rawQuery("select token from user", null);
 		if(cursor.moveToNext()){
 			String token = cursor.getString(cursor.getColumnIndex("token"));
-			String id = cursor.getString(cursor.getColumnIndex("userid"));
-			user = new User(token,id);		
+			user = new User(token);		
 		}
 		cursor.close();
 		db.close();

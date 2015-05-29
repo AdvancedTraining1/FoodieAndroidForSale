@@ -52,8 +52,7 @@ public class PublishCouponsActivity extends Activity {
 		
         buttonInputOK.setOnClickListener(new OnClickListener() {
             
-            @Override
-			public void onClick(View v) {
+            public void onClick(View v) {
             	SharedPreferences preferences = getSharedPreferences("Text", 0);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("title", getTextTitle());
@@ -66,8 +65,7 @@ public class PublishCouponsActivity extends Activity {
         
         buttonInputDone.setOnClickListener(new OnClickListener() {
             
-            @Override
-			public void onClick(View v) {
+            public void onClick(View v) {
                 
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -112,7 +110,7 @@ public class PublishCouponsActivity extends Activity {
 		
         if(requestCode == 0) {
             if(resultCode == Activity.RESULT_OK) {
-            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
+            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
                 //SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
                 //Toast.makeText(PublishCouponsActivity.this, "haole",Toast.LENGTH_LONG ).show();

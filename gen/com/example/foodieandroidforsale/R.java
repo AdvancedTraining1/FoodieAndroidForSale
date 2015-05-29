@@ -49,65 +49,10 @@ public final class R {
         public static final int title_bar=0x7f020009;
     }
     public static final class id {
-<<<<<<< HEAD
-        public static final int action_settings=0x7f090021;
-        public static final int btn_back=0x7f09000e;
-        public static final int btn_login=0x7f090012;
-        public static final int btn_register=0x7f09000f;
-        public static final int buttonInputDone=0x7f09001c;
-        public static final int buttonInputOK=0x7f09001b;
-        public static final int buttonNewInput=0x7f090020;
-        public static final int button_01=0x7f090009;
-        public static final int button_02=0x7f09000a;
-        public static final int button_03=0x7f09000b;
-        public static final int button_04=0x7f09000c;
-        public static final int card_account=0x7f090014;
-        public static final int card_account_field=0x7f090016;
-        public static final int card_account_label=0x7f090015;
-        public static final int card_title=0x7f090013;
-        public static final int dishlist=0x7f090000;
-        public static final int displayContent=0x7f09001f;
-        public static final int editMessageContent=0x7f090007;
-        public static final int editMessageTitle=0x7f090005;
-        public static final int editTextInput=0x7f090018;
-        public static final int editTextInput_01=0x7f09001a;
-        public static final int et_againPassword=0x7f09001e;
-        public static final int et_email=0x7f09001d;
-        public static final int et_password=0x7f090011;
-        public static final int et_username=0x7f090010;
-        public static final int login_top_layout=0x7f09000d;
-        public static final int sample_content_fragment=0x7f090003;
-        public static final int sample_main_layout=0x7f090001;
-        public static final int sample_output=0x7f090002;
-        public static final int sendMsg=0x7f090008;
-        public static final int txt_01=0x7f090017;
-        public static final int txt_02=0x7f090019;
-        public static final int txt_bulk=0x7f090006;
-        public static final int txt_title=0x7f090004;
-    }
-    public static final class layout {
-        public static final int activity_dish_order=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int bulk_coupons=0x7f030002;
-        public static final int home_page=0x7f030003;
-        public static final int login=0x7f030004;
-        public static final int main_fragment=0x7f030005;
-        public static final int publish_coupons=0x7f030006;
-        public static final int register=0x7f030007;
-        public static final int scan_tag=0x7f030008;
-        public static final int title_btn_back=0x7f030009;
-        public static final int title_btn_right=0x7f03000a;
-    }
-    public static final class menu {
-        public static final int dish_order=0x7f080000;
-        public static final int main=0x7f080001;
-=======
         public static final int action_settings=0x7f090026;
-        public static final int btn_back=0x7f090013;
-        public static final int btn_dishorder=0x7f090010;
-        public static final int btn_login=0x7f090017;
-        public static final int btn_register=0x7f090014;
-        public static final int btn_seatnum=0x7f090011;
+        public static final int btn_back=0x7f090011;
+        public static final int btn_login=0x7f090015;
+        public static final int btn_register=0x7f090012;
         public static final int btn_set_seat=0x7f090002;
         public static final int buttonInputDone=0x7f090021;
         public static final int buttonInputOK=0x7f090020;
@@ -116,10 +61,10 @@ public final class R {
         public static final int button_02=0x7f09000d;
         public static final int button_03=0x7f09000e;
         public static final int button_04=0x7f09000f;
-        public static final int card_account=0x7f090019;
+        public static final int card_account=0x7f090017;
         public static final int card_account_field=0x7f09001b;
-        public static final int card_account_label=0x7f09001a;
-        public static final int card_title=0x7f090018;
+        public static final int card_account_label=0x7f090018;
+        public static final int card_title=0x7f090016;
         public static final int dishlist=0x7f090003;
         public static final int displayContent=0x7f090024;
         public static final int editMessageContent=0x7f09000a;
@@ -129,9 +74,11 @@ public final class R {
         public static final int edit_seat_num=0x7f090001;
         public static final int et_againPassword=0x7f090023;
         public static final int et_email=0x7f090022;
-        public static final int et_password=0x7f090016;
-        public static final int et_username=0x7f090015;
-        public static final int login_top_layout=0x7f090012;
+        public static final int et_password=0x7f090014;
+        public static final int et_username=0x7f090013;
+        public static final int login_top_layout=0x7f090010;
+        public static final int people_account=0x7f090019;
+        public static final int people_account_label=0x7f09001a;
         public static final int sample_content_fragment=0x7f090006;
         public static final int sample_main_layout=0x7f090004;
         public static final int sample_output=0x7f090005;
@@ -161,7 +108,6 @@ public final class R {
         public static final int dish_order=0x7f080001;
         public static final int main=0x7f080002;
         public static final int waiting_for_dish=0x7f080003;
->>>>>>> 7e6085fce747a62ad5553bedc6937561285f0244
     }
     public static final class string {
         public static final int account_number=0x7f060007;
@@ -172,13 +118,7 @@ public final class R {
         public static final int intro_message=0x7f060003;
         public static final int sample_hide_log=0x7f060005;
         public static final int sample_show_log=0x7f060004;
-<<<<<<< HEAD
         public static final int title_activity_dish_order=0x7f060008;
-=======
-        public static final int title_activity_add_seat_num=0x7f060009;
-        public static final int title_activity_dish_order=0x7f060008;
-        public static final int title_activity_waiting_for_dish=0x7f06000a;
->>>>>>> 7e6085fce747a62ad5553bedc6937561285f0244
     }
     public static final class style {
         /** 

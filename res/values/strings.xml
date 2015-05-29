@@ -23,5 +23,7 @@
     <string name="card_title">Sample Loyalty Card</string>
     <string name="account_number">Account Number</string>
     <string name="title_activity_dish_order">DishOrderActivity</string>
+    <string name="title_activity_add_seat_num">AddSeatNumActivity</string>
+    <string name="title_activity_waiting_for_dish">WaitingForDishActivity</string>
 
 </resources>

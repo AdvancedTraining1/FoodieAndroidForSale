@@ -41,4 +41,16 @@
         >
     </Button>
 
+    <Button
+        android:id="@+id/btn_dishorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dish Order" />
+
+    <Button
+        android:id="@+id/btn_seatnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Seat Num" />
+
 </LinearLayout>

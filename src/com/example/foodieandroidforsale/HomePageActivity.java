@@ -21,6 +21,8 @@ public class HomePageActivity extends Activity implements OnClickListener{
     private Button m_signin;
     private Button m_publish;
     private Button m_bulk;
+    private Button m_dishorder;
+    private Button m_seatnum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +32,13 @@ public class HomePageActivity extends Activity implements OnClickListener{
         m_signin = (Button)findViewById(R.id.button_01);
         m_publish = (Button)findViewById(R.id.button_02);
         m_bulk = (Button)findViewById(R.id.button_03);
+        m_dishorder = (Button)findViewById(R.id.button_04);
+        m_seatnum = (Button)findViewById(R.id.button_05);
         m_signin.setOnClickListener(this);
         m_publish.setOnClickListener(this);
         m_bulk.setOnClickListener(this);
+        m_dishorder.setOnClickListener(this);
+        m_seatnum.setOnClickListener(this);
     }
 
 
@@ -53,6 +59,14 @@ public class HomePageActivity extends Activity implements OnClickListener{
 			Intent k = new Intent(getApplicationContext(), BulkCoupons.class);
             startActivityForResult(k, 0);
 			break;
+		case R.id.button_04:
+			Intent d = new Intent(getApplicationContext(), DishOrderActivity.class);
+            startActivityForResult(d, 0);
+            break;
+        case R.id.button_05:
+        	Intent s = new Intent(getApplicationContext(), AddSeatNumActivity.class);
+            startActivityForResult(s, 0);
+            break;
 		default:
 			break;
 		}
@@ -63,14 +77,14 @@ public class HomePageActivity extends Activity implements OnClickListener{
 		
         if(requestCode == 0) {
             if(resultCode == Activity.RESULT_OK) {
-            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
+            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
                 //Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
                 //Toast.makeText(HomePageActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
             }
             if(resultCode == 998) {
-            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
+            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
                 Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();

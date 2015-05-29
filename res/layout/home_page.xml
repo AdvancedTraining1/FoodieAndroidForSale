@@ -37,7 +37,15 @@
         android:id="@+id/button_04"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="bianjiyouhuiquan"
+        android:text="Dish Order"
+        >
+	</Button>
+
+    <Button
+        android:id="@+id/button_05"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Set Seat Num"
         >
     </Button>
 

@@ -4,26 +4,17 @@ package com.example.foodieandroidforsale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONStringer;
-
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -48,11 +39,12 @@ public class BulkCoupons extends Activity {
         buttonInputOK = (Button)findViewById(R.id.sendMsg);
         
         buttonInputOK.setOnClickListener(new OnClickListener() {      
-            public void onClick(View v) {
+            @Override
+			public void onClick(View v) {
             	
             	if (getTextTitle()==null || "".equals(getTextTitle())
             			|| getTextContent()==null || "".equals(getTextContent())) {
-            		Toast.makeText(BulkCoupons.this, "ÌâÄ¿ºÍÄÚÈÝ²»ÄÜÎª¿Õ£¬ÇëÖØÐÂÌîÐ´",Toast.LENGTH_LONG ).show(); 
+            		Toast.makeText(BulkCoupons.this, "ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´",Toast.LENGTH_LONG ).show(); 
             		return;
         		}
             			

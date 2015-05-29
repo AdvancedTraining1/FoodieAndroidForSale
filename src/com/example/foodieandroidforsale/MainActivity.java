@@ -1,14 +1,7 @@
 package com.example.foodieandroidforsale;
 
 import android.os.Bundle;
-import android.app.Activity;
-import android.view.Menu;
-
-import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ViewAnimator;
 
 
 

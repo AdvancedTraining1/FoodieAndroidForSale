@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-import android.widget.ViewAnimator;
 
 
 
@@ -63,14 +62,14 @@ public class HomePageActivity extends Activity implements OnClickListener{
 		
         if(requestCode == 0) {
             if(resultCode == Activity.RESULT_OK) {
-            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
+            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
-                Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
-                Toast.makeText(HomePageActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
+                //Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
+                //Toast.makeText(HomePageActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
             }
             if(resultCode == 998) {
-            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
+            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 //displayContent.setText(preferences.getString("text", null));
                 Toast.makeText(HomePageActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();

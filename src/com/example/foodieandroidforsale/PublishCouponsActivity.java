@@ -1,13 +1,36 @@
 package com.example.foodieandroidforsale;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
 import org.json.JSONException;
 import org.json.JSONStringer;
 
+
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.IntentFilter.MalformedMimeTypeException;
+import android.nfc.FormatException;
+import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.nfc.tech.MifareClassic;
+import android.nfc.tech.Ndef;
+import android.nfc.tech.NdefFormatable;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,8 +38,8 @@ import android.widget.Toast;
 public class PublishCouponsActivity extends Activity {
     private EditText editTextInput;
     private EditText editTextContent;
-    private Button buttonInputOK; 
-    private JSONStringer jsonText;
+    private Button buttonInputOK;
+    private Button buttonInputDone;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +48,26 @@ public class PublishCouponsActivity extends Activity {
         editTextInput = (EditText)findViewById(R.id.editTextInput);
         editTextContent = (EditText)findViewById(R.id.editTextInput_01);
         buttonInputOK = (Button)findViewById(R.id.buttonInputOK);
+        buttonInputDone = (Button)findViewById(R.id.buttonInputDone);
+		
         buttonInputOK.setOnClickListener(new OnClickListener() {
             
-            public void onClick(View v) {
+            @Override
+			public void onClick(View v) {
+            	SharedPreferences preferences = getSharedPreferences("Text", 0);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("title", getTextTitle());
+                editor.putString("content", getTextContent());
+                editor.commit();       
+                Intent temp = new Intent(getApplicationContext(), WriteToTagActivity.class);
+                startActivityForResult(temp, 0);
+             }
+        });
+        
+        buttonInputDone.setOnClickListener(new OnClickListener() {
+            
+            @Override
+			public void onClick(View v) {
                 
                 SharedPreferences preferences = getSharedPreferences("Text", 0);
                 SharedPreferences.Editor editor = preferences.edit();
@@ -42,24 +82,7 @@ public class PublishCouponsActivity extends Activity {
              }
         });
         
-        jsonText = new JSONStringer();  
-        // 首先是{，对象开始。object和endObject必须配对使用  
-        try {
-			jsonText.object();
-			jsonText.key("id");  
-			
-	        jsonText.value("2");  
-	        jsonText.key("title");  
-	        jsonText.value("Discount");
-	        jsonText.key("text");  
-	        jsonText.value("80% Discount!");  
-	          
-	        // }，对象结束  
-	        jsonText.endObject();  
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+       
     }
     
     private String getTextContent()
@@ -83,4 +106,32 @@ public class PublishCouponsActivity extends Activity {
 			return "";
 		}
     }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		
+        if(requestCode == 0) {
+            if(resultCode == Activity.RESULT_OK) {
+            	//锟斤拷取锟斤拷诺锟斤拷锟斤拷
+                //SharedPreferences preferences = getSharedPreferences("Text", 0);
+                //displayContent.setText(preferences.getString("text", null));
+                //Toast.makeText(PublishCouponsActivity.this, "haole",Toast.LENGTH_LONG ).show();
+                //Toast.makeText(PublishCouponsActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
+            }
+         }
+        	
+    }
+    
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+	    
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+    
+
 }

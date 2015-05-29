@@ -58,7 +58,7 @@ public class RegisterActivity extends Activity {
 				password = et_password.getText().toString();
 				againPassword = et_againPassword.getText().toString();
 				email = et_email.getText().toString();
-				System.out.println("username：" + username+"-------password：" + password+"-------email:" + email);
+				//System.out.println("username锛� + username+"-------password锛� + password+"-------email:" + email);
 				
 				if(TextUtils.isEmpty(username.trim())){
 					Toast.makeText(v.getContext(), "The username can't be empty", Toast.LENGTH_LONG).show();
@@ -125,11 +125,11 @@ public class RegisterActivity extends Activity {
 	public void loginAfterRegister(String username, String password) throws Exception{
 		url = "/service/userinfo/login"; 
 		StringBuffer params = new StringBuffer();
-		// 表单参数与get形式一样
+		// 琛ㄥ崟鍙傛暟涓巊et褰㈠紡涓�牱
 		params.append("username").append("=").append(username)
 				.append("&").append("password").append("=")
 				.append(password);
-		byte[] bytes = params.toString().getBytes();  //变为字节
+		byte[] bytes = params.toString().getBytes();  //鍙樹负瀛楄妭
 		message = connect.testURLConn2(url, bytes);
 		JSONObject jsonObject = new JSONObject(message);
 		

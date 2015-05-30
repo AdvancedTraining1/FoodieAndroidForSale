@@ -87,6 +87,11 @@
                 <data android:mimeType="text/dishchoose" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AddSeatNumActivity"
+            android:label="title_activity_add_seat_num"
+            android:parentActivityName=".HomePageActivity" >
+        </activity>
     </application>
 
 </manifest>

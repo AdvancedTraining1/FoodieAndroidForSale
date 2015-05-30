@@ -63,7 +63,7 @@ public class FullDishItemsAdapter2 extends BaseAdapter {
 		Holder holder;
 		final int p=position;
 		if (null == view) {
-			view = LayoutInflater.from(context).inflate(R.layout.dishlist2,null);
+			view = LayoutInflater.from(context).inflate(R.layout.dishlist3,null);
 			holder = new Holder(view);
 			view.setTag(holder);
 

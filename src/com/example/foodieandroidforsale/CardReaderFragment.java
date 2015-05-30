@@ -16,9 +16,11 @@
 
 package com.example.foodieandroidforsale;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -155,36 +157,72 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
         // on the UI thread.
         getActivity().runOnUiThread(new Runnable() {
             @Override
-            public void run() {
+            public void run() {        	
+            	
                 mAccountField.setText(account);
-                
-                AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
-                m_sure.setMessage("有人签到了知道么!");
-                m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-        			
-        			@Override
+
+                //account = "5201314";
+                String peopledata = null;
+            	JSONArray list = null;
+    			peopledata = m_seatServer.Get("/service/seat/getList?restaurantId=5201314");
+    			//System.out.println(peopledata);
+    			try {
+    				JSONObject myJsonObject = new JSONObject(peopledata);
+    				list=myJsonObject.getJSONArray("peopleList"); //寰楀埌likes鏁扮粍
+    				 //鎵撳嵃Apple Pie
+    			} catch (JSONException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}
+    			for(int i=0;i<list.length();++i)
+    			{
+    				try {
+    					System.out.println(list.getString(i));
+    					JSONObject temp = new JSONObject(list.getString(i));
+    					String value = temp.getString("_id");
+    					System.out.println(value);
+    					if("12345".equals(value))
+    					{
+    						AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
+    						m_sure.setMessage("Sign Again!");
+    						m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+    		        			public void onClick(DialogInterface dialog, int which) {
+    		        		    	
+    		        			}
+    		        		});
+    						final AlertDialog dialog = m_sure.create();    
+    		                Window window = dialog.getWindow();    
+    		                WindowManager.LayoutParams lp = window.getAttributes();       
+    		                lp.alpha = 0.8f;  
+    		                lp.y = -180;
+    		                window.setAttributes(lp);
+    						dialog.show();
+    						return;
+    					}
+    				} catch (JSONException e) {
+    					// TODO Auto-generated catch block
+    					e.printStackTrace();
+    				}
+    			}
+    			AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
+    			String value = null;
+		    	String temp = m_seatServer.Get("/service/seat/insertPeople?restaurantId=5201314&Id=12345&Name=QQ");
+		    	System.out.println(temp);
+    			m_sure.setMessage("Sign OK!");
+    			m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
         			public void onClick(DialogInterface dialog, int which) {
-        				// TODO Auto-generated method stub
-        				//Toast.makeText(getApplicationContext(), "To another page",Toast.LENGTH_SHORT).show();
-        				//mText.setText("Scan a tag!" );
-        				
-        				//Intent intent1=new Intent(NFCScanTagActivity.this,CouponActivity.class);
-        	            //send music names
-        	            //intent1.putStringArrayListExtra("list", msg);
-        	            //startActivity(intent1);
+        		    	
         			}
         		});
-                
-                final AlertDialog dialog = m_sure.create();    
+    			
+    			final AlertDialog dialog = m_sure.create();    
                 Window window = dialog.getWindow();    
                 WindowManager.LayoutParams lp = window.getAttributes();       
                 lp.alpha = 0.8f;  
                 lp.y = -180;
                 window.setAttributes(lp);
-                dialog.show();
-                
-                m_Seat++;
-                mSeatNum.setText(String.format("%d", m_Seat));
+				dialog.show();
+                mPeopleNum.setText(getPeopleNumber());
             }
         });
     }

@@ -19,7 +19,7 @@ public class UserDao {
 	public User find(){
 		User user = null;
 		SQLiteDatabase db = dbHelper.getReadableDatabase();
-		Cursor cursor = db.rawQuery("select token from user", null);
+		Cursor cursor = db.rawQuery("select token,userid from user", null);
 		if(cursor.moveToNext()){
 			String token = cursor.getString(cursor.getColumnIndex("token"));
 			user = new User(token);		

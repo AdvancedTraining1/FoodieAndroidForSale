@@ -2,51 +2,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+    
+    <!-- android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical">
+    android:paddingTop="@dimen/activity_vertical_margin"-->
 
-     <TextView
-        android:layout_width="wrap_content"
+    <include
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-    <Button
-        android:id="@+id/button_01"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="签到"
-        >
-    </Button>
-	<Button
-        android:id="@+id/button_02"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="编辑优惠券"
-        >
-    </Button> 
-    <Button
-        android:id="@+id/button_03"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="群发消息"
-        >
-    </Button>
-    <Button
-        android:id="@+id/button_04"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Dish Order"
-        >
-	</Button>
+        layout="@layout/top1" />
 
-    <Button
-        android:id="@+id/button_05"
+   <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Set Seat Num"
-        >
-    </Button>
+         android:orientation="vertical"
+	    android:layout_margin="50dp">
+
+    
+	    <Button
+	        android:id="@+id/button_01"
+	        android:layout_height="wrap_content"
+	        android:layout_width="match_parent"
+	        android:text="签到"
+	        android:textColor="#F5F5F5"
+	        android:background="@drawable/bg_mainpage_btn"
+	        >
+	    </Button>
+		<Button
+	        android:id="@+id/button_02"
+	        android:layout_height="wrap_content"
+	        android:layout_width="match_parent"
+	        android:text="编辑优惠券"
+	        android:layout_marginTop="15dp"
+	        android:textColor="#F5F5F5"
+	        android:background="@drawable/bg_mainpage_btn"
+	        >
+	    </Button> 
+	    <Button
+	        android:id="@+id/button_03"
+	        android:layout_height="wrap_content"
+	        android:layout_width="match_parent"
+	        android:text="群发消息"
+	        android:layout_marginTop="15dp"
+	        android:textColor="#F5F5F5"
+	        android:background="@drawable/bg_mainpage_btn"
+	        >
+	    </Button>
+	
+	    <Button
+	        android:id="@+id/btn_dishorder"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="订单" 
+	        android:layout_marginTop="15dp"
+	        android:textColor="#F5F5F5"
+	        android:background="@drawable/bg_mainpage_btn"/>
+	
+	    <Button
+	        android:id="@+id/btn_seatnum"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="设置座位数"
+	        android:layout_marginTop="15dp" 
+	        android:textColor="#F5F5F5"
+	        android:background="@drawable/bg_mainpage_btn"/>
+    </LinearLayout>
+   
 
 </LinearLayout>

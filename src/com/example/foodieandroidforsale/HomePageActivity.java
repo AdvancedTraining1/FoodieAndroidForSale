@@ -22,6 +22,9 @@ public class HomePageActivity extends Activity implements OnClickListener{
     private Button m_publish;
     private Button m_bulk;
     private Button m_dishorder;
+    private Button m_serSeatNum;
+    private Button btn_register;
+    private Button btn_login;;
     private Button m_seatnum;
 
     @Override
@@ -32,13 +35,19 @@ public class HomePageActivity extends Activity implements OnClickListener{
         m_signin = (Button)findViewById(R.id.button_01);
         m_publish = (Button)findViewById(R.id.button_02);
         m_bulk = (Button)findViewById(R.id.button_03);
-        m_dishorder = (Button)findViewById(R.id.button_04);
-        m_seatnum = (Button)findViewById(R.id.button_05);
+        m_dishorder = (Button)findViewById(R.id.btn_dishorder);
+        m_serSeatNum = (Button)findViewById(R.id.btn_seatnum);
+        btn_login = (Button)findViewById(R.id.btn_login);
+        btn_register = (Button)findViewById(R.id.btn_register);
+        
+        
         m_signin.setOnClickListener(this);
         m_publish.setOnClickListener(this);
         m_bulk.setOnClickListener(this);
         m_dishorder.setOnClickListener(this);
-        m_seatnum.setOnClickListener(this);
+        m_serSeatNum.setOnClickListener(this);
+        btn_login.setOnClickListener(this);
+        btn_register.setOnClickListener(this);
     }
 
 
@@ -59,13 +68,21 @@ public class HomePageActivity extends Activity implements OnClickListener{
 			Intent k = new Intent(getApplicationContext(), BulkCoupons.class);
             startActivityForResult(k, 0);
 			break;
-		case R.id.button_04:
+		case R.id.btn_dishorder:
 			Intent d = new Intent(getApplicationContext(), DishOrderActivity.class);
             startActivityForResult(d, 0);
             break;
-        case R.id.button_05:
+        case R.id.btn_seatnum:
         	Intent s = new Intent(getApplicationContext(), AddSeatNumActivity.class);
             startActivityForResult(s, 0);
+            break;
+        case R.id.btn_login:
+        	Intent a = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivityForResult(a, 0);
+            break;
+        case R.id.btn_register:
+        	Intent b = new Intent(getApplicationContext(), RegisterActivity.class);
+            startActivityForResult(b, 0);
             break;
 		default:
 			break;

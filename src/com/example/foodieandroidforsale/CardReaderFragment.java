@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -131,6 +132,7 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
     public void onResume() {
         super.onResume();
         enableReaderMode();
+        mPeopleNum.setText(getPeopleNumber());
     }
 
     private void enableReaderMode() {

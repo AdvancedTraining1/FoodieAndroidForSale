@@ -97,10 +97,10 @@ public final class R {
         public static final int name=0x7f090012;
         public static final int people_account=0x7f090023;
         public static final int people_account_label=0x7f090024;
+        public static final int remove=0x7f090014;
         public static final int sample_content_fragment=0x7f090008;
         public static final int sample_main_layout=0x7f090005;
         public static final int sample_output=0x7f090006;
-        public static final int select=0x7f090014;
         public static final int sendMsg=0x7f090010;
         public static final int textView0=0x7f090009;
         public static final int textView1=0x7f090000;

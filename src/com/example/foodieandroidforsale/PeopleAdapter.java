@@ -3,6 +3,7 @@ package com.example.foodieandroidforsale;
 
 import com.example.foodieandroidforsale.R;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -86,7 +87,15 @@ public class PeopleAdapter extends BaseAdapter {
 		//---------getPic == id of the pic in drawable-------
 		holder.iamge.setImageResource(dish.getPic());
 		final String id = dish.getId();
-		holder.checked.setVisibility(View.INVISIBLE);
+		//holder.checked.setVisibility(View.INVISIBLE);
+		holder.checked.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(context, "number", Toast.LENGTH_SHORT).show();
+			}
+
+		});
 		return view;
 	}
 	
@@ -96,14 +105,14 @@ public class PeopleAdapter extends BaseAdapter {
 	    TextView title = null;
 	    TextView text = null;
 	    //Button button = null;
-	    CheckBox checked = null;
+	    Button checked = null;
 
 		public Holder(View view) {
 			iamge = (ImageView) view.findViewById(R.id.img);
     		title = (TextView) view.findViewById(R.id.name);
     		text = (TextView) view.findViewById(R.id.desc);
     		//button = (Button)view.findViewById(R.id.array_button);
-    		checked = (CheckBox)view.findViewById(R.id.select);
+    		checked = (CheckBox)view.findViewById(R.id.remove);
     		
 		}
 	}

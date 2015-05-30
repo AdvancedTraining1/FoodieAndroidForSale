@@ -43,10 +43,12 @@
             android:gravity="center_vertical"/>
     </LinearLayout>
 
+	<Button
+        android:id="@+id/remove"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Delete"
+        >
+    </Button>
 
-    <CheckBox
-        android:id="@+id/select"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:checked="false" />
 </LinearLayout>

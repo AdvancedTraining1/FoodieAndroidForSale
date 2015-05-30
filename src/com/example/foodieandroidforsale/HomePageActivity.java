@@ -3,6 +3,7 @@ package com.example.foodieandroidforsale;
 
 
 
+import cn.jpush.android.api.JPushInterface;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -48,6 +49,9 @@ public class HomePageActivity extends Activity implements OnClickListener{
         m_serSeatNum.setOnClickListener(this);
         btn_login.setOnClickListener(this);
         btn_register.setOnClickListener(this);
+        
+        JPushInterface.setDebugMode(true);
+		JPushInterface.init(this);
     }
 
 
@@ -111,6 +115,18 @@ public class HomePageActivity extends Activity implements OnClickListener{
          }
         	
     }
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		JPushInterface.onResume(this);
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		JPushInterface.onPause(this);
+	}
 
 
 }

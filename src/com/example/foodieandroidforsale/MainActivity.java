@@ -1,13 +1,19 @@
 package com.example.foodieandroidforsale;
 
+
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ViewAnimator;
 
 
@@ -22,7 +28,7 @@ import android.widget.ViewAnimator;
 public class MainActivity extends SampleActivityBase {
 
     public static final String TAG = "MainActivity";
-
+    private Button m_list;
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
 
@@ -30,6 +36,17 @@ public class MainActivity extends SampleActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        m_list = (Button)findViewById(R.id.list);
+        m_list.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getApplicationContext(), PeopleListActivity.class);
+				startActivity(i);
+			}
+
+		});
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         CardReaderFragment fragment = new CardReaderFragment();

@@ -183,7 +183,7 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
     					JSONObject temp = new JSONObject(list.getString(i));
     					String value = temp.getString("_id");
     					System.out.println(value);
-    					if("12345".equals(value))
+    					if(account.equals(value))
     					{
     						AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
     						m_sure.setMessage("Sign Again!");
@@ -208,7 +208,7 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
     			}
     			AlertDialog.Builder m_sure = new AlertDialog.Builder(m_Context);
     			String value = null;
-		    	String temp = m_seatServer.Get("/service/seat/insertPeople?restaurantId=5201314&Id=12345&Name=QQ");
+		    	String temp = m_seatServer.Get("/service/seat/insertPeople?restaurantId=5201314&Id="+account+"&Name=cmm");
 		    	System.out.println(temp);
     			m_sure.setMessage("Sign OK!");
     			m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {

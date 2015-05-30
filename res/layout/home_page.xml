@@ -12,14 +12,13 @@
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         layout="@layout/top1" />
 
    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
          android:orientation="vertical"
-	    android:layout_margin="70dp">
+	    android:layout_margin="50dp">
 
     
 	    <Button
@@ -70,33 +69,6 @@
 	        android:textColor="#F5F5F5"
 	        android:background="@drawable/bg_mainpage_btn"/>
     </LinearLayout>
-=======
-        android:layout_width="wrap_content"
-        android:text="编辑优惠券"
-        >
-    </Button> 
-    <Button
-        android:id="@+id/button_03"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="群发消息"
-        >
-    </Button>
-    <Button
-        android:id="@+id/button_04"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Dish Order"
-        >
-	</Button>
-
-    <Button
-        android:id="@+id/button_05"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Set Seat Num"
-        >
-    </Button>
->>>>>>> 0a131d6e529872fcd1442402b941ce1d2be95977
+   
 
 </LinearLayout>

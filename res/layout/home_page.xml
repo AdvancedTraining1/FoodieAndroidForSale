@@ -55,7 +55,7 @@
 	        android:id="@+id/btn_dishorder"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="Dish Order" 
+	        android:text="订单" 
 	        android:layout_marginTop="15dp"
 	        android:textColor="#F5F5F5"
 	        android:background="@drawable/bg_mainpage_btn"/>
@@ -64,7 +64,7 @@
 	        android:id="@+id/btn_seatnum"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="Set Seat Num"
+	        android:text="设置座位数"
 	        android:layout_marginTop="15dp" 
 	        android:textColor="#F5F5F5"
 	        android:background="@drawable/bg_mainpage_btn"/>

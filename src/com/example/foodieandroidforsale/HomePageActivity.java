@@ -73,8 +73,8 @@ public class HomePageActivity extends Activity implements OnClickListener{
             startActivityForResult(k, 0);
 			break;
 		case R.id.btn_dishorder:
-			//Intent d = new Intent(getApplicationContext(), DishOrderActivity.class);
-            //startActivityForResult(d, 0);
+			Intent d = new Intent(getApplicationContext(), DishOrderActivity.class);
+            startActivityForResult(d, 0);
             break;
         case R.id.btn_seatnum:
         	Intent s = new Intent(getApplicationContext(), AddSeatNumActivity.class);

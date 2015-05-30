@@ -41,17 +41,18 @@ public final class R {
         public static final int bg_ocean=0x7f020001;
         public static final int card_background=0x7f020002;
         public static final int ic_launcher=0x7f020003;
-        public static final int icon_foodie=0x7f020004;
-        public static final int image=0x7f020005;
-        public static final int jay=0x7f020006;
-        public static final int mm_title_back_focused=0x7f020007;
-        public static final int mm_title_back_normal=0x7f020008;
-        public static final int mm_title_back_pressed=0x7f020009;
-        public static final int mm_title_btn_focused=0x7f02000a;
-        public static final int mm_title_btn_normal=0x7f02000b;
-        public static final int mm_title_btn_pressed=0x7f02000c;
-        public static final int tile=0x7f02000d;
-        public static final int title_bar=0x7f02000e;
+        public static final int icon_avatar=0x7f020004;
+        public static final int icon_foodie=0x7f020005;
+        public static final int image=0x7f020006;
+        public static final int jay=0x7f020007;
+        public static final int mm_title_back_focused=0x7f020008;
+        public static final int mm_title_back_normal=0x7f020009;
+        public static final int mm_title_back_pressed=0x7f02000a;
+        public static final int mm_title_btn_focused=0x7f02000b;
+        public static final int mm_title_btn_normal=0x7f02000c;
+        public static final int mm_title_btn_pressed=0x7f02000d;
+        public static final int tile=0x7f02000e;
+        public static final int title_bar=0x7f02000f;
     }
     public static final class id {
         public static final int action_settings=0x7f090035;
@@ -116,16 +117,17 @@ public final class R {
         public static final int activity_peoplelist=0x7f030003;
         public static final int bulk_coupons=0x7f030004;
         public static final int dishlist2=0x7f030005;
-        public static final int home_page=0x7f030006;
-        public static final int login=0x7f030007;
-        public static final int main_fragment=0x7f030008;
-        public static final int peopellist=0x7f030009;
-        public static final int publish_coupons=0x7f03000a;
-        public static final int register=0x7f03000b;
-        public static final int scan_tag=0x7f03000c;
-        public static final int title_btn_back=0x7f03000d;
-        public static final int title_btn_right=0x7f03000e;
-        public static final int top1=0x7f03000f;
+        public static final int dishlist3=0x7f030006;
+        public static final int home_page=0x7f030007;
+        public static final int login=0x7f030008;
+        public static final int main_fragment=0x7f030009;
+        public static final int peopellist=0x7f03000a;
+        public static final int publish_coupons=0x7f03000b;
+        public static final int register=0x7f03000c;
+        public static final int scan_tag=0x7f03000d;
+        public static final int title_btn_back=0x7f03000e;
+        public static final int title_btn_right=0x7f03000f;
+        public static final int top1=0x7f030010;
     }
     public static final class menu {
         public static final int add_seat_num=0x7f080000;

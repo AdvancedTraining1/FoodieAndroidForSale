@@ -115,7 +115,7 @@ public class DishOrderActivity extends Activity implements CreateNdefMessageCall
 //          intent1.putExtra("message", messageString);
 //          intent1.setClass(DishOrderActivity.this, OrderListActivity.class);
 //          startActivity(intent1);
-          
+         
           String[] sourceStrArray = messageString.split(";");
           System.out.println("array length------"+sourceStrArray.length);
           
@@ -136,7 +136,7 @@ public class DishOrderActivity extends Activity implements CreateNdefMessageCall
           m_adapter2 = new FullDishItemsAdapter2(this, m_DishData);
           m_listview.setAdapter(m_adapter2);
           mTextView.setText("Order is:");
-          
+          m_DishData = null;
 			
           
       }

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import cn.jpush.android.data.r;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -74,10 +76,24 @@ public class FullDishItemsAdapter2 extends BaseAdapter {
 		DishItem dish = this.dishes.get(position);
 		holder.title.setText(dish.getName());
 		holder.text.setText(dish.getDesc());
-		view.setBackgroundColor(dish.getColor());
+		
+		int[] colors = new int[] { 0x00010101, 0x55808080 };
+		
+		int colorPos = position % colors.length;
+		if (colorPos==0) {
+			view.setBackgroundColor(colors[0]);
+			
+		}else {
+			view.setBackgroundColor(colors[1]);
+		}
+		if (dish.getPic()==2130837562){
+			holder.iamge.setImageResource(R.drawable.jay);
+		}else {
+			holder.iamge.setImageResource(R.drawable.image);
+		}
 		
 		//---------getPic == id of the pic in drawable-------
-		holder.iamge.setImageResource(dish.getPic());
+	
 		final String id = dish.getId();
 	
 		return view;

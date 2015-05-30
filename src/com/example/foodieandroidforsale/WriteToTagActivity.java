@@ -43,8 +43,7 @@ public class WriteToTagActivity extends Activity{
  	private static String[][] mTechLists;
  	private Tag mytag;
  	
- 	 @Override
-	protected void onCreate(Bundle savedInstanceState) {
+ 	 protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.scan_tag);
          
@@ -70,9 +69,8 @@ public class WriteToTagActivity extends Activity{
  		
          buttonInputOK.setOnClickListener(new OnClickListener() {
              
-             @Override
-			public void onClick(View v) {
-            	//ï¿½ï¿½È¡ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½
+             public void onClick(View v) {
+            	//¶ÁÈ¡´æ·ÅµÄÊý¾Ý
                 // SharedPreferences preferences = getSharedPreferences("Text", 0);
                  //Toast.makeText(WriteToTagActivity.this, preferences.getString("title", null),Toast.LENGTH_LONG ).show();
                 // Toast.makeText(WriteToTagActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
@@ -84,7 +82,7 @@ public class WriteToTagActivity extends Activity{
          });
          
          jsonText = new JSONStringer();  
-         // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½objectï¿½ï¿½endObjectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½  
+         // Ê×ÏÈÊÇ{£¬¶ÔÏó¿ªÊ¼¡£objectºÍendObject±ØÐëÅä¶ÔÊ¹ÓÃ  
          
      }
      
@@ -99,9 +97,9 @@ public class WriteToTagActivity extends Activity{
      @Override
      public void onNewIntent(Intent intent) {
 
-    	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
+    	 //ÕâÊÇÌáÊ¾¿ò
          AlertDialog.Builder m_sure = new AlertDialog.Builder(WriteToTagActivity.this);
-         m_sure.setMessage("Ð´ï¿½ï¿½É¹ï¿½!");
+         m_sure.setMessage("Ð´Èë³É¹¦!");
          m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
  			
  			@Override
@@ -215,7 +213,7 @@ public class WriteToTagActivity extends Activity{
          //Toast.makeText(WriteToTagActivity.this, preferences.getString("content", null),Toast.LENGTH_LONG ).show();
     	if (preferences.getString("title", null)==null || "".equals(preferences.getString("title", null))
     			|| preferences.getString("content", null)==null || "".equals(preferences.getString("content", null))) {
-    		Toast.makeText(WriteToTagActivity.this, "ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´",Toast.LENGTH_LONG ).show(); 
+    		Toast.makeText(WriteToTagActivity.this, "ÌâÄ¿ºÍÄÚÈÝ²»ÄÜÎª¿Õ£¬ÇëÖØÐÂÌîÐ´",Toast.LENGTH_LONG ).show(); 
     		return false;
 		}
     	 
@@ -230,7 +228,7 @@ public class WriteToTagActivity extends Activity{
  	        jsonText.key("text");  
  	        jsonText.value(preferences.getString("content", null));  
  	          
- 	        // }ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+ 	        // }£¬¶ÔÏó½áÊø  
  	        jsonText.endObject();  
  		} catch (JSONException e) {
  			// TODO Auto-generated catch block

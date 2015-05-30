@@ -26,7 +26,6 @@ public class RegisterActivity extends Activity {
 	private Button btn_back;
 	
 	public static String token;
-	public static String id;
 	//public boolean isConnect = false;
 	public UserDao userDao = new UserDao(this);
 	ConnectToServer connect;
@@ -136,8 +135,7 @@ public class RegisterActivity extends Activity {
 		
 		try{
 			token = jsonObject.getString("token");
-			id = jsonObject.getString("id");
-			userDao.add(token,id);
+			userDao.add(token);
 			System.out.println("token:"+token);
 		}catch(Exception e){
 			e.printStackTrace();

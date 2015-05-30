@@ -16,6 +16,9 @@
 
 package com.example.foodieandroidforsale;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -45,8 +48,10 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
     public LoyaltyCardReader mLoyaltyCardReader;
     private TextView mAccountField;
     private TextView mSeatNum;
+    private TextView mPeopleNum;
     private Context m_Context;
     private int m_Seat;
+    private SeatToServer m_seatServer;
     /** Called when sample is created. Displays generic UI with welcome text. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,13 +64,18 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.main_fragment, container, false);
         if (v != null) {
+        	m_seatServer = new SeatToServer();
+        	
             mAccountField = (TextView) v.findViewById(R.id.card_account_field);
             mSeatNum = (TextView)v.findViewById(R.id.card_account_label);
+            mPeopleNum = (TextView)v.findViewById(R.id.people_account_label);
             mAccountField.setText("Waiting...");
             m_Seat = getSeatNumber();
             mSeatNum.setText(String.format("%d", m_Seat));
+            mPeopleNum.setText(getPeopleNumber());
             mLoyaltyCardReader = new LoyaltyCardReader(this);
-
+            
+            
             // Disable Android Beam and register our card reader callback
             enableReaderMode();
             
@@ -81,7 +91,32 @@ public class CardReaderFragment extends Fragment implements LoyaltyCardReader.Ac
     
     public int getSeatNumber()
     {
-    	return 30;
+    	String value = null;
+    	String temp = m_seatServer.Get("/service/seat/getseatnum?restaurantId=5201314");
+    	System.out.println(temp);
+    	try {
+			JSONObject myJsonObject = new JSONObject(temp);
+			 value = myJsonObject.getString("num");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return Integer.parseInt(value);
+    }
+    
+    public String getPeopleNumber()
+    {
+    	String value = null;
+    	String temp = m_seatServer.Get("/service/seat/getPeopleNum?restaurantId=5201314");
+    	System.out.println(temp);
+    	try {
+			JSONObject myJsonObject = new JSONObject(temp);
+			 value = myJsonObject.getString("num");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return value;
     }
 
     @Override

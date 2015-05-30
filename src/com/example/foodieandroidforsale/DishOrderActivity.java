@@ -1,6 +1,7 @@
 package com.example.foodieandroidforsale;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,29 +9,34 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
-import android.nfc.NfcEvent;
 import android.nfc.NfcAdapter.CreateNdefMessageCallback;
+import android.nfc.NfcEvent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class DishOrderActivity extends Activity implements CreateNdefMessageCallback{
 
 	TextView mTextView = null;
 	NfcAdapter mNfcAdapter;
-	private  ArrayList<String> dishlist;
+	private ListView m_listview;
+	private FullDishItemsAdapter2 m_adapter2;
+    private List<DishItem> m_DishData = new ArrayList<DishItem>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_dish_order);
 		
 		mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 		
 		mTextView = (TextView) this.findViewById(R.id.dishlist);
-		
+        m_listview = (ListView)findViewById(R.id.listView1);
+        
+     
 		mNfcAdapter.setNdefPushMessageCallback(this, this);
 	}
 
@@ -83,6 +89,7 @@ public class DishOrderActivity extends Activity implements CreateNdefMessageCall
    				// TODO Auto-generated method stub
    				//Toast.makeText(getApplicationContext(), "To another page",Toast.LENGTH_SHORT).show();
    				mTextView.setText("get a dish order!" );
+   			
    				
    			
    			}
@@ -99,12 +106,38 @@ public class DishOrderActivity extends Activity implements CreateNdefMessageCall
           System.out.println("transfor information:"+new String(msg.getRecords()[0].getPayload()));
           // record 0 contains the MIME type, record 1 is the AAR, if present
           
-          String listString = new String(msg.getRecords()[0].getPayload());
-          String[] lists=listString.split(",");
-          for (int i = 1; i < lists.length; i++) {
-        	  dishlist.add(lists[i]);
+     //     mTextView.setText(new String(msg.getRecords()[0].getPayload()));
+          String messageString = new String(msg.getRecords()[0].getPayload());
+          
+          System.out.println("transt message----"+messageString);
+//          DishOrderActivity.this.finish();
+//          Intent intent1=new Intent();
+//          intent1.putExtra("message", messageString);
+//          intent1.setClass(DishOrderActivity.this, OrderListActivity.class);
+//          startActivity(intent1);
+          
+          String[] sourceStrArray = messageString.split(";");
+          System.out.println("array length------"+sourceStrArray.length);
+          
+          for (int i = 0; i < sourceStrArray.length; i=i+5) {
+			String id = sourceStrArray[i];
+			String dishName = sourceStrArray[i+1];
+	        String desc = sourceStrArray[i+3];
+	        int pic=Integer.parseInt(sourceStrArray[i+2]);
+	        int col=Integer.parseInt(sourceStrArray[i+4]);
+	        DishItem dishitem = new DishItem(id, dishName, desc,pic,col);
+	        System.out.println("dish is ---" + dishitem);
+	        m_DishData.add(dishitem);
+			
 		}
           
-          mTextView.setText(new String(msg.getRecords()[0].getPayload()));
+          System.out.println("dish data size----" + m_DishData.size());
+      	
+          m_adapter2 = new FullDishItemsAdapter2(this, m_DishData);
+          m_listview.setAdapter(m_adapter2);
+          mTextView.setText("Order is:");
+          
+			
+          
       }
 }

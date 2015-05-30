@@ -48,7 +48,7 @@ limitations under the License.
 	            android:id="@+id/card_account"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="签到数  "
+	            android:text="座位数  "
 	            android:fontFamily="sans-serif"
 	            android:textStyle="bold"
 	            android:textSize="18dp"
@@ -56,6 +56,26 @@ limitations under the License.
             />
         	 <TextView
 	            android:id="@+id/card_account_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/account_number"
+	            android:fontFamily="sans-serif"
+	            android:textStyle="bold"
+	            android:textSize="18dp"
+	            android:layout_marginTop="40dp"
+            />
+        	 <TextView
+	            android:id="@+id/people_account"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="人数  "
+	            android:fontFamily="sans-serif"
+	            android:textStyle="bold"
+	            android:textSize="18dp"
+	            android:layout_marginTop="40dp"
+            />
+        	 <TextView
+	            android:id="@+id/people_account_label"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:text="@string/account_number"

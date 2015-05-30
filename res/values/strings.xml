@@ -8,22 +8,16 @@
 <![CDATA[
         
             
-            This sample demonstrates how to implement a low-level NFC card reader, for reading cards
-            that do not contain NDEF or Android Beam data. This sample is designed to read the virtual
-            loyalty card implemented in the "CardEmulation" sample.\n\n
-
-            In particular, this sample demonstrates how to disable Android Beam, select which AIDs the
-            reader is interested, and establish communication with the card
+            我跟你说签到这种事必须做，做好了签到，做不到点名。 我跟你说签到这种事必须做，做好了签到，做不到点名。 我跟你说签到这种事必须做，做好了签到，做不到点名
+            。 我跟你说签到这种事必须做，做好了签到，做不到点名。 我跟你说签到这种事必须做，做好了签到，做不到点名
             
         
         ]]>
     </string>
     <string name="sample_show_log">Show Log</string>
     <string name="sample_hide_log">Hide Log</string>
-    <string name="card_title">Sample Loyalty Card</string>
+    <string name="card_title">等着签到排队座位</string>
     <string name="account_number">Account Number</string>
     <string name="title_activity_dish_order">DishOrderActivity</string>
-    <string name="title_activity_add_seat_num">AddSeatNumActivity</string>
-    <string name="title_activity_waiting_for_dish">WaitingForDishActivity</string>
 
 </resources>

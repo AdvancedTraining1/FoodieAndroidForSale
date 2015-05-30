@@ -63,37 +63,17 @@ CreateNdefMessageCallback,OnNdefPushCompleteCallback{
         m_adapter2 = new PeopleAdapter(this, m_DishData);
         m_listview.setAdapter(m_adapter2);
         m_seatServer = new SeatToServer();
-        m_listview.setOnItemClickListener(new OnItemClickListener(){   
-            @Override   
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,   
-                    long arg3) {   
-            	m_DishData.get(arg2);
-            	//Toast.makeText(getApplicationContext(), m_DishData.get(arg2).getPeopleID(), Toast.LENGTH_SHORT).show();
-            	AlertDialog.Builder m_sure = new AlertDialog.Builder(PeopleListActivity
-            			.this);
-    			final int value = arg2;
-		    	
-    			m_sure.setMessage("Delete?");
-    			m_sure.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-        			public void onClick(DialogInterface dialog, int which) {
-        				String temp = m_seatServer.Get("/service/seat/deletePeople?restaurantId=5201314&Id="+m_DishData.get(value).getPeopleID()+"&Name="+m_DishData.get(value).getPeopleName()
-        		    			);
-        		    	System.out.println(temp);
-        		    	
-        			}
-        		});
-    			
-    			final AlertDialog dialog = m_sure.create();    
-                Window window = dialog.getWindow();    
-                WindowManager.LayoutParams lp = window.getAttributes();       
-                lp.alpha = 0.8f;  
-                lp.y = -180;
-                window.setAttributes(lp);
-				dialog.show(); 
-				m_adapter2.notifyDataSetChanged();
-            }   
-               
-        });
+        m_adapter2.setAdapter(m_adapter2,m_seatServer,m_DishData);
+//        m_listview.setOnItemClickListener(new OnItemClickListener(){   
+//            @Override   
+//            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,   
+//                    long arg3) {   
+//            	m_DishData.get(arg2);
+//            	//Toast.makeText(getApplicationContext(), m_DishData.get(arg2).getPeopleID(), Toast.LENGTH_SHORT).show();
+//            	
+//            }   
+//               
+//        });
         
         //m_submit.setOnClickListener(this);
     }

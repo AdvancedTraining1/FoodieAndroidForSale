@@ -2,7 +2,10 @@ package com.example.foodieandroidforsale;
 
 
 import com.example.foodieandroidforsale.R;
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +27,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -37,8 +42,9 @@ public class PeopleAdapter extends BaseAdapter {
 	private Context context;
 	//ArrayList<Boolean> checkedItem = new ArrayList<Boolean>();
 	ArrayList<String> idList = new ArrayList<String>();
-	
-	
+	private PeopleAdapter m_adapter;
+	private SeatToServer m_seatServer;
+	private ArrayList<PeopleItem> m_PeopleData;
 	public PeopleAdapter(Context contex, List<PeopleItem> dishes) {
 		this.dishes = dishes;
 		this.context = contex;
@@ -88,18 +94,41 @@ public class PeopleAdapter extends BaseAdapter {
 		holder.iamge.setImageResource(dish.getPic());
 		final String id = dish.getId();
 		//holder.checked.setVisibility(View.INVISIBLE);
-		holder.checked.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(context, "number", Toast.LENGTH_SHORT).show();
-			}
-
-		});
+		holder.checked.setOnClickListener(new OnClickCommitBtnListener1(position)); 
 		return view;
 	}
 	
+	public void setAdapter(PeopleAdapter a,SeatToServer b,ArrayList<PeopleItem> m) {
+		m_adapter = a;
+		m_seatServer = b;
+		m_PeopleData = m;
+	}
+	
+	private class OnClickCommitBtnListener1 implements OnClickListener {
+		private int pos;
+		
+		public OnClickCommitBtnListener1(int pos) {
+			this.pos = pos;
+		}
+		@Override
+		public void onClick(View v) {
+			Toast.makeText(context, "On click delete item" + pos, Toast.LENGTH_SHORT).show();
+			//
+			Toast.makeText(context, dishes.get(pos).getPeopleID(), Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, dishes.get(pos).getPeopleName(), Toast.LENGTH_SHORT).show();
+		
+			//Toast.makeText(context, "number", Toast.LENGTH_SHORT).show();
+			String temp = m_seatServer.Get("/service/seat/deletePeople?restaurantId=5201314&Id="+dishes.get(pos).getPeopleID()+"&Name="+m_PeopleData.get(pos).getPeopleName()
+			    			);
+			//System.out.println(temp);
 
+			dishes.remove(pos);
+			m_adapter.notifyDataSetChanged();
+			
+			//adapter.notifyAll();
+		}
+	}
+	
 	private static class Holder {
 		ImageView iamge = null;
 	    TextView title = null;
@@ -112,7 +141,7 @@ public class PeopleAdapter extends BaseAdapter {
     		title = (TextView) view.findViewById(R.id.name);
     		text = (TextView) view.findViewById(R.id.desc);
     		//button = (Button)view.findViewById(R.id.array_button);
-    		checked = (CheckBox)view.findViewById(R.id.remove);
+    		checked = (Button)view.findViewById(R.id.remove);
     		
 		}
 	}
